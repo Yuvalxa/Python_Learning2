@@ -148,64 +148,9 @@ def func3(a):
 func1(1)
 func2(1)
 func3(1)
-print("\n######Q7#######")
-
-class Subject:
-    """Represents what is being observed"""
-
-    def __init__(self):
-
-        """create an empty observer list"""
-        self._observers = []
-
-    def tweet(self, tweet):
-
-        """Alert the observers"""
-
-        for observer in self._observers:
-                observer.update(tweet,observer)
-
-    def follow(self, observer):
-
-        """If the observer is not in the list,
-        append it into the list"""
-
-        if observer not in self._observers:
-            self._observers.append(observer)
-        return self
-
-
-class Twitter(Subject):
-    """monitor the object"""
-
-    def __init__(self, name=''):
-        Subject.__init__(self)
-        self.name = name
-
-    def update(self, tweet,observer):
-        print(tweet,'| to: ',observer.name)
-
-a = Twitter('Alice')
-k = Twitter('King')
-q = Twitter('Queen')
-h = Twitter('Mad Hatter')
-c = Twitter('Cheshire Cat')
-a.follow(c).follow(h).follow(q)
-k.follow(q)
-q.follow(q).follow(h)
-h.follow(a).follow(q).follow(c)
-print(f'==== {q.name} tweets ====')
-q.tweet('Off with their heads!')
-print(f'\n==== {a.name} tweets ====')
-a.tweet('What a strange world we live in.')
-print(f'\n==== {k.name} tweets ====')
-k.tweet('Begin at the beginning, and go on till you come to the end: then stop.')
-print(f'\n==== {c.name} tweets ====')
-c.tweet("We're all mad here.") ##don't have anyone to tweet to
-print(f'\n==== {h.name} tweets ====')
-h.tweet('Why is a raven like a writing-desk?')
-
 print("\n######Q8#######")
+
+
 def f1(x, y=[]):
     y.append(x)
     return sum(y)
